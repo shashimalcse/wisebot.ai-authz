@@ -1,10 +1,11 @@
 # Use the openfga/openfga image as the base image
 FROM openfga/openfga
 
+WORKDIR /app
+
 # Expose the ports that your application uses. 
 EXPOSE 8080 8081 3000
 
-# Create a non-root user
 RUN adduser \
     --disabled-password \
     --gecos "" \
@@ -12,7 +13,7 @@ RUN adduser \
     --shell "/sbin/nologin" \
     --no-create-home \
     --uid 10014 \
-    "cronuseo"
+    "choreo"
 # Use the above created unprivileged user
 USER 10014
 
